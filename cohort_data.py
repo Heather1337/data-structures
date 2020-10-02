@@ -20,7 +20,6 @@ def all_houses(filename):
     # TODO: replace this with your code
     house_open_file = open(filename)
     for line in house_open_file:
-      line = line.rstrip()
       words = line.split("|")
       house = words[2]
       if house != "":
@@ -57,9 +56,26 @@ def students_by_cohort(filename, cohort='All'):
       - list[list]: a list of lists
     """
 
-    students = []
 
+    students = []
+#Harry|Potter|Gryffindor|McGonagall|Fall 2015
+#Minerva|McGonagall|2|3|I
     # TODO: replace this with your code
+    student_file = open(filename)
+    for line in student_file:
+      words = line.split("|") #[Harry, Potter, Gryffindor, McGonagall, Fall 2015]
+      student_name = str(words[0])+ " " + str(words[1])
+      
+      if words[4] == "I" and words[4] == "G":
+        print(student_name)
+
+     # if words[4] != "I" and words[4] != "G":
+       # if cohort == "All":
+        #  print('checking in ALL --------',cohort, student_name, words[4])
+         # students.append(student_name)
+      #elif cohort == words[4]:
+       # print('checking in not ALL-------', cohort, student_name)
+       # students.append(student_name)
 
     return sorted(students)
 

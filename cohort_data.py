@@ -264,8 +264,8 @@ def get_housemates_for(filename, name):
     """
 
     housemates = set()
-    given_student_cohort = get_cohort_for(filename, name)
     given_student_house = ''
+    given_student_cohort = ''
  
     school_file = open(filename)
     for line in school_file:
@@ -274,6 +274,7 @@ def get_housemates_for(filename, name):
       first_name, last_name, house, adviser, cohort = words
       if first_name + ' ' + last_name == name:
         given_student_house = house 
+        given_student_cohort = cohort
 
     school_file_open = open(filename)
     for line in school_file_open:
@@ -284,7 +285,6 @@ def get_housemates_for(filename, name):
       if house == given_student_house and cohort == given_student_cohort and name != first_name + ' ' + last_name:
         housemates.add(first_name + ' ' + last_name) 
     
-    # print(housemates)
     return housemates
       
     
